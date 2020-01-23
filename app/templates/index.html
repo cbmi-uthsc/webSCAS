@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <center>
+    {% for patient in patients %}
+        <h6>{{ patient.patient_id }}</h6>
+        <h6>{{ patient.patient_name }}</h6>
+        <h6>{{ patient.patient_disease }}</h6>
+            <br>
+    {% endfor %}
+    </center>
+{% endblock %}

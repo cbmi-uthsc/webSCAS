@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
+    <title>{{ title }}</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark fixed-top">
+        <!-- <a class="navbar-brand text-light col-sm-4" href="#">
+          <img src="/docs/4.1/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+          Builder
+        </a> -->
+        <button type="button" class="navbar-toggler bg-light float-right" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto col-sm-12">
+                <li class="nav-item active" style="margin-right: 2%;margin-left: 5%;">
+                    <a class="nav-link text-light" href="{{ url_for('index') }}">Web Scas <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item"><a href="{{ url_for('add_patient') }}" class="nav-link text-light">&nbsp;<i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;Add Patient</a></li>
+              </li>
+            </ul>
+        </div>
+    </nav>    
+    <div class="container message" style="margin-top: 5%;">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        <!-- Categories: success (green), info (blue), warning (yellow), danger (red) -->
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }} alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+              aria-hidden="true">&times;</span></button>
+          {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </div>    
+    {% block content %} {% endblock %}
+    <script>
+        setTimeout(function() {
+            $('.alert-dismissible').remove();
+        }, 5000); 
+
+        $(".custom-file-input").on("change", function() {
+        var fileName = $(this).val().split("\\").pop();
+        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>    
+</body>
+</html>
