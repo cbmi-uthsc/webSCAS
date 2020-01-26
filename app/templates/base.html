@@ -23,7 +23,10 @@
                     <a class="nav-link text-light" href="{{ url_for('index') }}">Web Scas <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item"><a href="{{ url_for('add_patient') }}" class="nav-link text-light">&nbsp;<i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;Add Patient</a></li>
-              </li>
+                <li class="nav-item">
+                    <a href="{{ url_for('patient_details') }}" class="nav-link text-light">&nbsp;
+                    <i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;Add Patient Detail</a>
+                </li>
             </ul>
         </div>
     </nav>    
@@ -45,7 +48,7 @@
     <script>
         setTimeout(function() {
             $('.alert-dismissible').remove();
-        }, 5000); 
+        }, 2000); 
 
         $(".custom-file-input").on("change", function() {
         var fileName = $(this).val().split("\\").pop();

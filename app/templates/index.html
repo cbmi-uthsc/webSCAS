@@ -2,11 +2,17 @@
 
 {% block content %}
     <center>
+        <!-- <h4>Search</h4>
+        <form action="search" method="GET">
+            <label for="query">Name</label>
+            <input type="text" name="query" id="query">
+            <button class="btn btn-primary">Search</button>
+        </form> -->
     {% for patient in patients %}
         <h6>{{ patient.patient_id }}</h6>
         <h6>{{ patient.patient_name }}</h6>
         <h6>{{ patient.patient_disease }}</h6>
-            <br>
+        <br>
     {% endfor %}
     </center>
 {% endblock %}
