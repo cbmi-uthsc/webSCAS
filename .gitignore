@@ -1,0 +1,5 @@
+__pycache__
+migrations
+*.db
+venv
+whoosh

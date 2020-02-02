@@ -1,0 +1,2 @@
+FLASK_APP=webscas.py
+FLASK_DEBUG=1

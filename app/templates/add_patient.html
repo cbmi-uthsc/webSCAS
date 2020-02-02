@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <style >
+        h3 {margin-top: 5%;margin-bottom: 5%;}
+    </style>
+    <center>
+        <h3>Add Patient</h3>
+        <form action="" method="POST" novalidate>
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.patient_name.label }} <br>
+                {{ form.patient_name(size=32) }} <br>
+                {% for error in form.patient_name.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}                
+            </p>
+            <p>
+                {{ form.patient_id.label }} <br>
+                {{ form.patient_id(size=32) }} <br>
+                {% for error in form.patient_id.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}                
+            </p>
+            <p>
+                {{ form.patient_disease.label }} <br>
+                {{ form.patient_disease(size=32) }} <br>
+                {% for error in form.patient_disease.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}                
+            </p>
+            <p>
+                {{ form.submit() }}
+            </p>
+        </form>
+    </center>
+{% endblock %}

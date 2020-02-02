@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <style>
+        h4 {margin-top: 5%; margin-bottom: 1%;}
+    </style>
+    <center>
+        <h4>Add Patient Details</h4>
+        <form action="" method="POST" novalidate>
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.patient_id.label }} <br>
+                {{ form.patient_id(size=32) }} <br>
+                {% for error in form.patient_id.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.fever.label }} <br>
+                {{ form.fever(size=32) }} <br>
+                {% for error in form.fever.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.heart_rate.label }} <br>
+                {{ form.heart_rate(size=32) }} <br>
+                {% for error in form.heart_rate.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.respiratory_rate.label }} <br>
+                {{ form.respiratory_rate(size=32) }} <br>
+                {% for error in form.respiratory_rate.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.abnormal_white_blood_cell_count.label }} <br>
+                {{ form.abnormal_white_blood_cell_count(size=32) }} <br>
+                {% for error in form.abnormal_white_blood_cell_count.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.paco2.label }} <br>
+                {{ form.paco2(size=32) }} <br>
+                {% for error in form.paco2.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>{{ form.submit() }}</p>
+        </form>
+    </center>
+{% endblock %}
