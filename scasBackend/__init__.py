@@ -1,7 +1,3 @@
-
-# Imports
-##########
-
 from flask import abort, Flask, request
 
 from scasBackend.utils import get_instance_folder_path
@@ -10,11 +6,6 @@ from scasBackend.config import configure_app
 from scasBackend.models import db
 from flask_cors import CORS
 
-###############################################################################
-
-
-# Initialise
-#############
 
 app = Flask(
     __name__,
@@ -24,12 +15,6 @@ app = Flask(
 configure_app(app) # load configurations
 db.init_app(app) # init app to db
 CORS(app) #Cross Origin Resource Sharing Plugin
-
-###############################################################################
-
-
-# Error Handling
-#################
 
 @app.errorhandler(404)
 def page_not_found(error):
@@ -47,12 +32,6 @@ def unhandled_exception(error):
     app.logger.error('Unhandled Exception: %s', (error))
     return "500"
 
-###############################################################################
-
-
-# Pre/Post Request Processing
-##############################
-
 @app.before_first_request
 def initialize_database():
     db.create_all()
@@ -62,12 +41,6 @@ def after_request(response):
     header = response.headers
     header['Access-Control-Allow-Origin'] = '*'
     return response
-
-###############################################################################
-
-
-# Routings
-###########
 
 @app.route('/')
 @app.route('/<lang_code>/')

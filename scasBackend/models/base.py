@@ -1,14 +1,4 @@
-
-# Imports
-##########
-
 from . import db
-
-###############################################################################
-
-
-# Base Class
-#############
 
 class Base(db.Model):
     __abstract__ = True
@@ -30,5 +20,3 @@ class Base(db.Model):
     def create(self):
     	db.session.add(self)
     	db.session.commit()
-
-###############################################################################

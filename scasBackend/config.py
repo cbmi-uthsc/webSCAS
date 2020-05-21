@@ -1,18 +1,9 @@
-
-# Imports
-##########
-
 from scasBackend.models import db
 import os
 import logging
 
-###############################################################################
-
-
 # Configs
-##########
 
-# Base
 class BaseConfig(object):
     DEBUG = False
     TESTING = False
@@ -45,11 +36,6 @@ config = {
     "default": "scasBackend.config.DevelopmentConfig"
 }
 
-###############################################################################
-
-
-# Set configiuration
-#####################
 def configure_app(app):
     # Configure above configuraton
     config_name = os.getenv('FLASK_CONFIGURATION', 'default')
@@ -62,5 +48,3 @@ def configure_app(app):
     formatter = logging.Formatter(app.config['LOGGING_FORMAT'])
     handler.setFormatter(formatter)
     app.logger.addHandler(handler)
-
-###############################################################################
